@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <Extern href="stdidcmd.h"/>
+    <Extern href="vsshlids.h"/>
+    <Extern href="msobtnid.h"/>
+    <Commands package="guidOpenWithTestPkgString">
+        <!-- Inside this section we have different sub-sections: one for the menus, another  
+        for the menu groups, one for the buttons (the actual commands), one for the combos 
+        and the last one for the bitmaps used. Each element is identified by a command id that  
+        is a unique pair of guid and numeric identifier; the guid part of the identifier is usually  
+        called "command set" and is used to group different command inside a logically related  
+        group; your package should define its own command set in order to avoid collisions  
+        with command ids defined by other packages. -->
+        <Menus>
+            <Menu guid="guidOpenWithTestCmdSet" id="Toolbar" type="Toolbar">
+              <!--<Parent guid="guidSHLMainMenu" id="IDM_VS_TOOL_STANDARD" />-->
+                <CommandFlag>DefaultDocked</CommandFlag>
+                <Strings>
+                    <ButtonText>OpenWithTest</ButtonText>
+                    <CommandName>OpenWithTest</CommandName>
+                </Strings>
+            </Menu>
+        </Menus>
+        
+        <Groups>
+            <Group guid="guidOpenWithTestCmdSet" id="GeneralGroup" priority="0x0000">
+                <Parent guid="guidOpenWithTestCmdSet" id="Toolbar"/>
+            </Group>
+        </Groups>
+   
+        <!--Buttons section. -->
+        <!--This section defines the elements the user can interact with, like a menu command or a button 
+            or combo box in a toolbar. -->
+        <Buttons>
+            <!--To define a menu group you have to specify its ID, the parent menu and its display priority. 
+                The command is visible and enabled by default. If you need to change the visibility, status, etc, you can use
+                the CommandFlag node.
+                You can add more than one CommandFlag node e.g.:
+                    <CommandFlag>DefaultInvisible</CommandFlag>
+                    <CommandFlag>DynamicVisibility</CommandFlag>
+                If you do not want an image next to your command, remove the Icon node or set it to <Icon guid="guidOfficeIcon" id="msotcidNoIcon" /> -->
+
+            <!--GeneralGroup-->
+            <Button guid="guidOpenWithTestCmdSet" id="cmdidEnableDisable" priority="0x0100" type="Button">
+                <Parent guid="guidOpenWithTestCmdSet" id="GeneralGroup" />
+                <Icon guid="guidImages" id="imgEnableDisable" />
+                <!--<CommandFlag>DynamicVisibility</CommandFlag>
+                <CommandFlag>DefaultInvisible</CommandFlag>-->
+                <Strings>
+                    <CommandName>cmdidEnableDisable</CommandName>
+                    <ButtonText>Enable/Disable OpenWithTest</ButtonText>
+                    <ToolTipText>Enable or Disable OpenWithTest</ToolTipText>
+                </Strings>
+            </Button>
+        </Buttons>
+
+        <Combos>
+        </Combos>
+        
+        <Bitmaps>
+            <Bitmap guid="guidImages" 
+                    href="Resources\sprite.png" 
+                    usedList="imgEnableDisable"/>
+        </Bitmaps>
+    </Commands>
+    <Symbols>
+        <!-- This is the package guid. -->
+        <GuidSymbol name="guidOpenWithTestPkgString" value="{9db562aa-c791-4226-a5aa-7adabcf4b6ab}" />
+   
+        <!-- This is the guid used to group the menu commands together -->
+        <GuidSymbol name="guidOpenWithTestCmdSet" value="{ca305f3a-0175-455f-a9ad-9131dc96d59e}">
+            <IDSymbol name="cmdidEnableDisable" value="0x0100" />
+            <IDSymbol name ="Toolbar" value="0x1000"/>
+            <IDSymbol name ="GeneralGroup" value="0x1050"/>
+        </GuidSymbol>
+
+        <GuidSymbol name="guidImages" value="{21A46E27-E914-498E-92B8-0BAFB1D4DE2B}" >
+            <IDSymbol name="imgEnableDisable" value="1"/>
+        </GuidSymbol>
+    </Symbols>
+</CommandTable>
