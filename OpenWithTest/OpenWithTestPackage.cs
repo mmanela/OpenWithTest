@@ -14,7 +14,7 @@ namespace MattManela.OpenWithTest
     [PackageRegistration(UseManagedResourcesOnly = true)]
     [ProvideOptionPage(typeof (OpenWithTestSettings), "Open With Test", "General", 14340, 17770, true)]
     [ProvideOptionPage(typeof(ResetOptions), "Open With Test", "Reset", 14340, 17771, true)]
-    [InstalledProductRegistration("#110", "#112", "1.0", IconResourceID = 400)]
+    [InstalledProductRegistration("#110", "#112", "1.0.0", IconResourceID = 400)]
     [ProvideMenuResource("Menus.ctmenu", 1)]
     [ProvideAutoLoad(GuidList.autoLoadOnSolutionExists)]
     [Guid(GuidList.guidOpenWithTestPkgString)]
