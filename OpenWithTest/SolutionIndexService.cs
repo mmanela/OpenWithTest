@@ -310,6 +310,10 @@ namespace MattManela.OpenWithTest
             {
                 logger.Log(e.Message, "SolutionIndexService::LoadFileIndex", e);
             }
+            catch (SerializationException e)
+            {
+                logger.Log(e.Message, "SolutionIndexService::LoadFileIndex", e);
+            }
 
             return index ?? new SolutionFileIndex(solutionPath);
         }
